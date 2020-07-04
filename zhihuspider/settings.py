@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'zhihuspider.spiders'
 #USER_AGENT = 'zhihuspider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -27,7 +27,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -52,9 +52,9 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'zhihuspider.middlewares.ZhihuspiderDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'zhihuspider.middlewares.RandomUserAgentMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -88,3 +88,16 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# 选取user-agent的方式
+RANDOM_UA_TYPE = "random"
+
+MYSQL_HOST = "127.0.0.1"
+MYSQL_DBNAME = "article_spider"
+MYSQL_USER = "root"
+MYSQL_PASSWORD = "root"
+
+
+SQL_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+SQL_DATE_FORMAT = "%Y-%m-%d"
+
